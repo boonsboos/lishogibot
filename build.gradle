@@ -1,0 +1,30 @@
+plugins {
+    id 'java'
+    id 'groovy'
+    id 'com.github.johnrengelman.shadow' version '7.0.0'
+}
+
+repositories {
+    mavenCentral()
+    maven {
+        name 'm2-dv8tion'
+        url 'https://m2.dv8tion.net/releases'
+    }
+}
+
+dependencies {
+    dependencies {
+        implementation("net.dv8tion:JDA:4.3.0_310") {
+            exclude module: 'opus-java'
+        }
+    }
+}
+
+shadowJar {
+    archiveBaseName.set('lishogibot')
+    manifest {
+        attributes (
+                'Main-Class': 'xyz.mrsherobrine.lishogibot.Main'
+        )
+    }
+}
