@@ -15,7 +15,6 @@ public class ConfigGenerator {
 
     public void generateConfig() throws IOException, InterruptedException {
         String a = System.getProperty("user.dir") + System.getProperty("file.separator") + "config.json";
-        logger.info(System.getProperty("user.dir")+", " +a);
         if (new File(a).createNewFile()) {
             logger.info("New config generated. Please configure it.");
             FileWriter w = new FileWriter(a);
